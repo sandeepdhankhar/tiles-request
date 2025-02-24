@@ -29,16 +29,6 @@ under the License.
     <name>Tiles Request Framework</name>
     <description>Request abstraction for various request and template technologies</description>
     <url>http://tiles.apache.org/tiles-request/</url>
-    <scm>
-        <connection>scm:svn:http://svn.apache.org/repos/asf/tiles/request/trunk/</connection>
-        <developerConnection>scm:svn:https://svn.apache.org/repos/asf/tiles/request/trunk/</developerConnection>
-        <url>http://svn.apache.org/viewvc/tiles/request/trunk/</url>
-    </scm>
-    <issueManagement>
-        <system>JIRA</system>
-        <url>https://issues.apache.org/jira/browse/TREQ</url>
-        <!-- dev@tiles.apache.org :: this line satisfies INFRA-3329 -->
-    </issueManagement>
 
     <modules>
         <module>tiles-request-api</module>
@@ -52,6 +42,16 @@ under the License.
         <module>tiles-request-mustache</module>
         <module>assembly</module>
     </modules>
+
+    <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/sandeepdhankhar/tiles-request</url>
+    </repository>
+
+    </distributionManagement>
+
   
     <repositories>
         <repository>
@@ -63,6 +63,11 @@ under the License.
             <name>Sonatype's Maven repository</name>
             <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </repository>
+       <repository>
+     		<id>github</id>
+     		<name>GitHub OWNER Apache Maven Packages</name>
+     		<url>https://maven.pkg.github.com/sandeepdhankhar/*</url>
+   	</repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
@@ -158,27 +163,6 @@ under the License.
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-<!--
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-scm-publish-plugin</artifactId>
-              <extensions>true</extensions>
-                <configuration>
-                    <pubScmUrl>scm:svn:https://svn.apache.org/repos/asf/tiles/site/staging/tiles-request</pubScmUrl>
-                </configuration>
-            </plugin>
--->
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.7.0</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
             </plugin>
         </plugins>
 
